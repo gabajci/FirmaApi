@@ -46,7 +46,7 @@ namespace FirmaApi.Controllers
         [HttpPut("{id}")]
         public async Task<IActionResult> PutWorkAssignment(int id, WorkAssignment workAssignment)
         {
-            if (id != workAssignment.EmployeeId)
+            if (id != workAssignment.Id)
             {
                 return BadRequest();
             }
@@ -62,7 +62,7 @@ namespace FirmaApi.Controllers
                 if (!WorkAssignmentExists(id))
                 {
                     return NotFound();
-                }                
+                }
                 else
                 {
                     throw;
@@ -80,7 +80,7 @@ namespace FirmaApi.Controllers
             _context.WorkAssignments.Add(workAssignment);
             try
             {
-                await _context.SaveChangesAsync();
+            await _context.SaveChangesAsync();
             }
             catch (DbUpdateException)
             {
@@ -94,7 +94,7 @@ namespace FirmaApi.Controllers
                 }
             }
 
-            return CreatedAtAction("GetWorkAssignment", new { id = workAssignment.EmployeeId }, workAssignment);
+            return CreatedAtAction("GetWorkAssignment", new { id = workAssignment.Id }, workAssignment);
         }
 
         // DELETE: api/WorkAssignments/5
@@ -115,7 +115,7 @@ namespace FirmaApi.Controllers
 
         private bool WorkAssignmentExists(int id)
         {
-            return _context.WorkAssignments.Any(e => e.EmployeeId == id);
+            return _context.WorkAssignments.Any(e => e.Id == id);
         }
     }
 }
