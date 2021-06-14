@@ -40,11 +40,7 @@ namespace FirmaApi.Models
 
 
             modelBuilder.Entity<Employee>().HasKey(p => p.Id);
-
             modelBuilder.Entity<Employee>().Property(p => p.Id).IsRequired();
-
-            modelBuilder.Entity<Employee>().Property(p => p.Id).IsRequired().ValueGeneratedOnAdd();
-
             modelBuilder.Entity<Employee>().Property(p => p.Surname).IsRequired().HasMaxLength(255);
             modelBuilder.Entity<Employee>().Property(p => p.LastName).IsRequired().HasMaxLength(255);
             modelBuilder.Entity<Employee>().Property(p => p.SignInDate).IsRequired();
@@ -53,55 +49,35 @@ namespace FirmaApi.Models
             modelBuilder.Entity<Employee>().Property(p => p.Title).HasMaxLength(20);
 
             modelBuilder.Entity<WorkAssignment>().HasKey(p => p.Id);
-
             modelBuilder.Entity<WorkAssignment>().Property(p => p.Id).IsRequired();
-
-            modelBuilder.Entity<WorkAssignment>().Property(p => p.Id).IsRequired().ValueGeneratedOnAdd();
-
             modelBuilder.Entity<WorkAssignment>().Property(p => p.EmployeeId).IsRequired();
             modelBuilder.Entity<WorkAssignment>().Property(p => p.DepartmentId).IsRequired();
             modelBuilder.Entity<WorkAssignment>().Property(p => p.StartDate).IsRequired();            
 
 
             modelBuilder.Entity<Department>().HasKey(p => p.Id);
-
             modelBuilder.Entity<Department>().Property(p => p.Id).IsRequired();
-
-            modelBuilder.Entity<Department>().Property(p => p.Id).IsRequired().ValueGeneratedOnAdd();
-
             modelBuilder.Entity<Department>().Property(p => p.LeaderId).IsRequired();
             modelBuilder.Entity<Department>().Property(p => p.Name).IsRequired().HasMaxLength(255);
             modelBuilder.Entity<Department>().Property(p => p.ProjectId).IsRequired();
             modelBuilder.Entity<Department>().Property(p => p.PhoneNumber).HasMaxLength(50);
 
             modelBuilder.Entity<Project>().HasKey(p => p.Id);
-
             modelBuilder.Entity<Project>().Property(p => p.Id).IsRequired();
-
-            modelBuilder.Entity<Project>().Property(p => p.Id).IsRequired().ValueGeneratedOnAdd();
-
             modelBuilder.Entity<Project>().Property(p => p.LeaderId).IsRequired();
             modelBuilder.Entity<Project>().Property(p => p.Name).IsRequired().HasMaxLength(255);
             modelBuilder.Entity<Project>().Property(p => p.DivisionId).IsRequired();
             modelBuilder.Entity<Project>().Property(p => p.PhoneNumber).HasMaxLength(50);
 
             modelBuilder.Entity<Division>().HasKey(p => p.Id);
-
             modelBuilder.Entity<Division>().Property(p => p.Id).IsRequired();
-
-            modelBuilder.Entity<Division>().Property(p => p.Id).IsRequired().ValueGeneratedOnAdd();
-
             modelBuilder.Entity<Division>().Property(p => p.LeaderId).IsRequired();
             modelBuilder.Entity<Division>().Property(p => p.Name).IsRequired().HasMaxLength(255);
             modelBuilder.Entity<Division>().Property(p => p.CompanyId).IsRequired();
             modelBuilder.Entity<Division>().Property(p => p.PhoneNumber).HasMaxLength(50);
 
             modelBuilder.Entity<Company>().HasKey(p => p.Id);
-
             modelBuilder.Entity<Company>().Property(p => p.Id).IsRequired();
-
-            modelBuilder.Entity<Company>().Property(p => p.Id).IsRequired().ValueGeneratedOnAdd();
-
             modelBuilder.Entity<Company>().Property(p => p.LeaderId).IsRequired();
             modelBuilder.Entity<Company>().Property(p => p.Name).IsRequired().HasMaxLength(255);
             modelBuilder.Entity<Company>().Property(p => p.PhoneNumber).HasMaxLength(50);
