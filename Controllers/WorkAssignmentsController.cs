@@ -84,7 +84,7 @@ namespace FirmaApi.Controllers
             }
             catch (DbUpdateException)
             {
-                if (WorkAssignmentExists(workAssignment.EmployeeId))
+                if (WorkAssignmentExists(workAssignment.Id))
                 {
                     return Conflict();
                 }
