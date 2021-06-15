@@ -1,2 +1,2 @@
 # FirmaApi
-Rest api štruktúra obsahujúca databázu zamestnancov a firiem.
+Rest api štruktúra umožnujúca pracovať s databázou zamestnancov a firiem.
